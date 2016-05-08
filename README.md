@@ -9,6 +9,11 @@ El programa intenta dar una respuesta rapida al usuario y busca cuidar de la mej
 los datos ingresados por el usuario. Se captura la señal SIGINT para no cerrar de forma 
 violenta el programa y dar una mejor comprension al usuario de lo que ocurre.
 
+Instrucciones para compilacion:
+	El proyecto fue hecho con la version 5.3.1 de gcc y debe de usarse el siguiente comando:
+	gcc -lpthread principal.c
+	Se generara un archivo a.out, el cual podra ser ejecutado normalmente ./a.out
+
 El programa implementa varias medidas para conservar la integridad de la informacion, por 
 ejemplo:
 
