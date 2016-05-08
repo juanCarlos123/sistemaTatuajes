@@ -60,7 +60,7 @@ void revisaRegistro(Servicio *serv,int32_t s){
 */
 int32_t ingresaRegistro(Servicio *serv, int32_t s){
   char basuraTeclado;
-  int32_t isError= 0;
+  bool isError= 0;
   time_t tiempocrudo;
   struct tm *infotiempo;
   Servicio *tmp= (Servicio*)realloc(serv,(s+1)*sizeof(Servicio));
@@ -81,7 +81,7 @@ int32_t ingresaRegistro(Servicio *serv, int32_t s){
     isError= scanf("%s",serv[s].vendedor);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("\nDatos incorrectos, ingresa un dato valido\n");
       isError= scanf("%s",serv[s].vendedor);
       while((basuraTeclado= getchar()) != '\n');
@@ -91,7 +91,7 @@ int32_t ingresaRegistro(Servicio *serv, int32_t s){
     isError= scanf("%s",serv[s].servicio);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("\nDatos incorrectos, ingresa un dato valido\n");
       isError= scanf("%s",serv[s].servicio);
       while((basuraTeclado= getchar()) != '\n');
@@ -101,7 +101,7 @@ int32_t ingresaRegistro(Servicio *serv, int32_t s){
     isError= scanf("%s",serv[s].tienda);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("\nDatos incorrectos, ingresa un dato valido\n");
       isError= scanf("%s",serv[s].tienda);
       while((basuraTeclado= getchar()) != '\n');
@@ -111,7 +111,7 @@ int32_t ingresaRegistro(Servicio *serv, int32_t s){
     isError= scanf("%f",&serv[s].total);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("\nDatos incorrectos, ingresa un dato valido\n");
       isError= scanf("%f",&serv[s].total);
       while((basuraTeclado= getchar()) != '\n');

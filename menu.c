@@ -49,13 +49,14 @@ void menu(void){
 */
 int32_t pedirDato(void){
   char basuraTeclado;
-  int32_t isError= 0, numErrores= 0, opcion= 0;
+  bool isError= false;
+  int32_t numErrores= 0, opcion= 0;
 
   isError= scanf("%d", &opcion); //Se toma el retorno de scanf para validar
                                 //el dato, regresa la cantidad de datos leidos
   while((basuraTeclado= getchar()) != '\n');
 
-  while(isError != 1){
+  while(isError != true){
     numErrores++;
     printf("Error de asignacion, ingrese una nueva opcion, porfavor\n> ");
     isError= scanf("%d", &opcion);

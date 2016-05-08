@@ -70,12 +70,13 @@ void revisaInventario(Inventario *inv,int32_t p){
 */
 int32_t ingresaInventario(Inventario *inv,int32_t p){
   char basuraTeclado;
-  int32_t i= 0,existe,opcion= 0,isError= 0;
+  bool isError= false;
+  int32_t i= 0,existe,opcion= 0;
   Inventario compra;
 
   printf("\n\nIngresa el nombre del producto que deseas modificar/ingresar\n> ");
   isError= scanf("%s", compra.nombreProducto);
-  while(isError == 0){
+  while(isError == false){
     printf("Datos invalidos, ingresesa un nuevo valor");
     isError= scanf("%s", compra.nombreProducto);
     while((basuraTeclado= getchar()) != '\n');
@@ -106,7 +107,7 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
         isError= scanf("%d",&inv[i].cantidadExistente);
         while((basuraTeclado= getchar()) != '\n');
 
-        while(isError == 0){
+        while(isError == false){
           printf("Datos invalidos, ingresesa un nuevo valor");
           isError= scanf("%d",&inv[i].cantidadExistente);
           while((basuraTeclado= getchar()) != '\n');
@@ -119,7 +120,7 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
         isError= scanf("%s",inv[i].tienda);
         while((basuraTeclado= getchar()) != '\n');
 
-        while(isError == 0){
+        while(isError == false){
           printf("Datos invalidos, ingresesa un nuevo valor");
           isError= scanf("%s",inv[i].tienda);
           while((basuraTeclado= getchar()) != '\n');
@@ -132,7 +133,7 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
         isError= scanf("%f",&inv[i].precio);
         while((basuraTeclado= getchar()) != '\n');
 
-        while(isError == 0){
+        while(isError == false){
           printf("Datos invalidos, ingresesa un nuevo valor");
           isError= scanf("%f",&inv[i].precio);
           while((basuraTeclado= getchar()) != '\n');
@@ -155,7 +156,7 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
     isError= scanf("%d",&compra.cantidadExistente);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("Datos invalidos, ingresesa un nuevo valor");
       isError= scanf("%d",&compra.cantidadExistente);
       while((basuraTeclado= getchar()) != '\n');
@@ -165,7 +166,7 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
     isError= scanf("%s",compra.tienda);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("Datos invalidos, ingresesa un nuevo valor");
       isError= scanf("%s",compra.tienda);
       while((basuraTeclado= getchar()) != '\n');
@@ -175,7 +176,7 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
     isError= scanf("%f",&compra.precio);
     while((basuraTeclado= getchar()) != '\n');
 
-    while(isError == 0){
+    while(isError == false){
       printf("Datos invalidos, ingresesa un nuevo valor");
       isError= scanf("%f",&compra.precio);
       while((basuraTeclado= getchar()) != '\n');
@@ -221,11 +222,18 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
 */
 int32_t modificaInventario(Inventario *inv,int32_t p){
   char aMod[20], basuraTeclado;
+  bool isError= false;
   int32_t i,existe, cantidad, tmp;
 
   printf("\nIngresa el nombre del producto vendido\n");
-  scanf("%s",aMod);
+  isError= scanf("%s",aMod);
   while((basuraTeclado= getchar()) != '\n');
+
+  while(isError == false){
+    printf("Datos invalidos, ingresesa un nuevo valor");
+    isError= scanf("%s",aMod);
+    while((basuraTeclado= getchar()) != '\n');
+  }
 
   for(i=0; i<p; i++){
     existe= strcmp(aMod,inv[i].nombreProducto);
@@ -235,9 +243,15 @@ int32_t modificaInventario(Inventario *inv,int32_t p){
 
   if(existe == 0){
     printf("\nIngresa la cantidad vendida\n> ");
-    scanf("%d",&cantidad);
+    isError= scanf("%d",&cantidad);
     while((basuraTeclado= getchar()) != '\n');
     tmp= inv[i].cantidadExistente-cantidad;
+
+    while(isError == false){
+      printf("Datos invalidos, ingresesa un nuevo valor");
+      isError= scanf("%d",&cantidad);
+      while((basuraTeclado= getchar()) != '\n');
+    }
 
     if(tmp >= 0)
       inv[i].cantidadExistente= tmp;

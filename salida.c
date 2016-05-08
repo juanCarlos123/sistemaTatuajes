@@ -31,7 +31,7 @@
 int32_t escribirDatos(Inventario *inv, Servicio *serv){
   pthread_t escribeInv, escribeServ;
   void *ret1, *ret2;
-  int32_t isError= 0;
+  int8_t isError= 0;
   intptr_t err1, err2;
 
   pthread_create(&escribeInv,NULL,(void*)wInventario,(void*)inv);

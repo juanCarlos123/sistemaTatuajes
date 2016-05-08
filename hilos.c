@@ -29,7 +29,7 @@
 void *cuentaInventario(void* p){
   char c;
   intptr_t entradas= 0,*valor= (intptr_t*)p;
-  int32_t i= 0,isError= 0,lectura;
+  int32_t i= 0,lectura;
   Inventario *inv;
   FILE *arch;
 
@@ -90,7 +90,7 @@ void *cuentaInventario(void* p){
 void *cuentaRegistro(void* r){
   char c;
   intptr_t entradas= 0,*valor= (intptr_t*)r;
-  int32_t i= 0,isError= 0,lectura;
+  int32_t i= 0,lectura;
   Servicio *serv;
   FILE *arch;
 

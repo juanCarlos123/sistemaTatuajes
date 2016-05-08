@@ -57,7 +57,7 @@ int32_t main(int32_t argc, char* argv[]){
     return EXIT_FAILURE; //Se usa EXIT_FAILURE ya que se termina el programa
   }else{
     signal(SIGINT,ctrlc);
-    if(inicio() == -1){
+    if(inicio() == false){
       printf("Ha ocurrido un error, contacte al administrador\n");
       return EXIT_FAILURE;
     }else

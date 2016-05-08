@@ -7,8 +7,9 @@
 
 //Lista de includes
 #include <stdio.h> //Entrada y salida de datos
-#include <stdint.h> //Numeros enteros estandar independientes de la
-                    // arquitectura. Facilita el casteo
+#include <stdint.h> /*Numeros enteros estandar independientes de la
+                    arquitectura. Facilita el casteo*/
+#include<stdbool.h> //Facilita el uso de valores booleanos
 #include <stdlib.h> //calloc, realloc y system
 #include <pthread.h> //Hilos posix
 #include <string.h> //Manejo de cadenss
