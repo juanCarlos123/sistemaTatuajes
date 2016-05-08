@@ -35,7 +35,7 @@ Se incluyen 2 archivos .txt para probar el proyecto, igualmente se incluyen 2 ar
 .txt.bak. No son necesarios para la ejecucion del programa, ya que de no existir el programa
 los generara automaticamente. Solo que estos estaran vacios.
 
-Como punto final, se incluye un .zip, que contiene una pagina web con el listado de las 
+Como punto final, se incluye un .tar.gz, que contiene una pagina web con el listado de las 
 funciones, estructuras, variables y constantes en el programa. Tambien facilita la revision
 del codigo ya que muestra un listado con los codigos. La pagina fue generada con la herramienta
 doxygen.

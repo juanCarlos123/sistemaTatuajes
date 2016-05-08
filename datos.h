@@ -1,10 +1,8 @@
-/*
-  Autor: Miguel Rubi
-  Autor: Nicky Garcia
-
-  Archivo de cabecera que define los archivos que seran importados,
-  las constantes para hacer referencia a los archivos de guardado,
-  se definen los tipos de dato y las declaraciones de funciones.
+/**
+ * @file datos.h
+ *Archivo de cabecera que define los archivos que seran importados,
+ *las constantes para hacer referencia a los archivos de guardado,
+ *se definen los tipos de dato y las declaraciones de funciones.
 */
 
 //Lista de includes
@@ -19,10 +17,19 @@
 #include <signal.h> //Señal para cachar la señal SIGINT
 
 //Constates de llamada para archivos
+/**
+ * @brief Constante del nombre del archivo que se usara para inventario
+*/
 #define INVENTARIO "inventario.txt"
+/**
+ * @brief Constante del nombre del archivo que se usara para servicios
+*/
 #define REGISTRO "registro.txt"
 
 //Tipo de dato con los campos necesarios para un articulo del inventario
+/**
+ *@brief Tipo de dato con los campos necesarios para un articulo del inventario
+*/
 typedef struct inventario{
   char nombreProducto[20];
   char tienda[20];
@@ -32,6 +39,9 @@ typedef struct inventario{
 }Inventario;
 
 //Tipo de dato con los campos necesarios para registrar un servicio
+/**
+ *@brief Tipo de dato con los campos necesarios para registrar un servicio
+*/
 typedef struct servicio{
   char vendedor[20];
   char servicio[20];

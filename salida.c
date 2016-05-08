@@ -1,3 +1,8 @@
+/**
+ *@file salida.c
+ *Este archivo contiene las funciones que escribiran los datos a archivos.
+*/
+
 /*
   Parametros: (Inventario *inv, Servicio *serv) Se reciben los apuntadores
               de los arreglos que contienen la informacion tanto del inventario
@@ -11,6 +16,17 @@
   archivos a traves de hilos de ejecucion que se encargan de respaldar la
   informacion y de realizar la escritura. Si la informacion no fuera
   guardada correctamente, se intenta restaurar el ultimo respaldo existente.
+*/
+/**
+ * @brief El programa escribe los datos al disco duro, se ha planeado esta
+ *        funcion para trabajar dentro de un proceso hijo, se realiza la
+ *        escritura a los archivos a traves de hilos de ejecucion que se
+ *        encargan de respaldar la informacion y de realizar la escritura,
+ *        Si la informacion no fuera guardada correctamente, se intenta
+ *        restaurar el ultimo respaldo existente.
+ * @param *inv Arreglo con la información referente al inventario
+ * @param *serv Arreglo con la información referente a los servicios
+ * @return int32_t Se retorna el estado final de ejecución.
 */
 int32_t escribirDatos(Inventario *inv, Servicio *serv){
   pthread_t escribeInv, escribeServ;

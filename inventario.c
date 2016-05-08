@@ -1,7 +1,8 @@
-/*
-  Este archivo contiene todas las operaciones relacionadas con el
-  manejo del inventario de productos, tanto del listado, la modificacion
-  y creacion de informacion.
+/**
+ * @file inventario.c
+ *Este archivo contiene todas las operaciones relacionadas con el
+ *manejo del inventario de productos, tanto del listado, la modificacion
+ *y creacion de informacion.
 */
 
 /*
@@ -13,6 +14,15 @@
 
   Esta funcion imprime en pantalla el contenido del arreglo que tiene la
   informacion del usuario.
+*/
+/**
+ * @brief Esta funcion imprime en pantalla el contenido del arreglo que tiene
+ *        la informacion del usuario.
+ * @param *inv Se recibe el apuntador del arreglo que contiene la informacion
+ *        del usuario
+ * @param p entero que contiene la cantidad total de registros que tiene el
+ *        archivo
+ * @return int32_t Regresa el estado final de la ejecución de la funcion.
 */
 void revisaInventario(Inventario *inv,int32_t p){
   int32_t i= 0;
@@ -44,6 +54,19 @@ void revisaInventario(Inventario *inv,int32_t p){
   inventario que existen. Si el registro ingresado ya existe, el programa
   permitira modificar los campos del mismo, si no, el programa le permitira al
   usuario ingresar un nuevo registro. No se realiza ningun cambio al disco duro.
+*/
+/**
+ * @brief La funcion modifica el contenido del arreglo relacionado con el
+ *        inventario, esta funcion permite al usuario modificar o crear los
+ *        registros de inventario que existen, si el registro ingresado ya
+ *        existe, el programa permitira modificar los campos del mismo, si no,
+ *        el programa le permitira al usuario ingresar un nuevo registro, aun
+ *        no se realiza ningun cambio al disco duro.
+ * @param *inv Se recibe el apuntador del arreglo que contiene la informacion
+ *        del usuario
+ * @param p entero que contiene la cantidad total de registros que tiene el
+ *        archivo
+ * @return int32_t Regresa el estado final de la ejecución de la funcion.
 */
 int32_t ingresaInventario(Inventario *inv,int32_t p){
   char basuraTeclado;
@@ -186,6 +209,16 @@ int32_t ingresaInventario(Inventario *inv,int32_t p){
   existente, no permite más operaciones, es un acceso rapido para cuando
   se vende un producto.
 */
+/**
+ * @brief Esta funcion solo permite al usuario modificar la cantidade producto
+ *        existente, no permite más operaciones, es un acceso rapido para cuando
+ *        se vende un producto.
+ * @param *inv Se recibe el apuntador del arreglo que contiene la informacion
+ *        del usuario
+ * @param p entero que contiene la cantidad total de registros que tiene el
+ *        archivo
+ * @return int32_t Regresa el estado final de la ejecución de la funcion.
+*/
 int32_t modificaInventario(Inventario *inv,int32_t p){
   char aMod[20], basuraTeclado;
   int32_t i,existe, cantidad, tmp;
@@ -225,6 +258,17 @@ int32_t modificaInventario(Inventario *inv,int32_t p){
   "borrado", esto lo reconoce el resto del programa como una etiqueta que
   permita ignorar el contenido del registro y finalmente no lo vacia en el
   archivo.
+*/
+/**
+ * @brief Esta funcion de "borrado", cambia el nombre del producto por la
+ *        palabra "borrado", esto lo reconoce el resto del programa como una
+ *        etiqueta que permita ignorar el contenido del registro y finalmente
+ *        no lo vacia en el archivo.
+ * @param *inv Se recibe el apuntador del arreglo que contiene la informacion
+ *        del usuario
+ * @param p entero que contiene la cantidad total de registros que tiene el
+ *        archivo
+ * @return int32_t Regresa el estado final de la ejecución de la funcion.
 */
 int32_t quitaInventario(Inventario *inv,int32_t p){
   char aBorrar[20], basuraTeclado;

@@ -1,8 +1,9 @@
-/*
-  Este archivo contiene a los hilos que seran creados. Se ha optado por la
-  creacion de hilos para realizar operaciones durante "los tiempos muertos"
-  mientras el usuario elige una opcion para ejecutar y asi mejorar la
-  experiencia del usuario.
+/**
+ * @file hilos.c
+ *Este archivo contiene los hilos que seran creados. Se ha optado por la
+ *creacion de hilos para realizar operaciones durante "los tiempos muertos"
+ *mientras el usuario elige una opcion para ejecutar y asi mejorar la
+ *experiencia del usuario.
 */
 
 /*
@@ -15,6 +16,15 @@
   El hilo generado tiene como funcion principal encontrar la cantidad de
   registros contenidos en el archivo txt y generar un arreglo de estructuras
   capaz de contener los datos y mostrarlos.
+*/
+/**
+ * @brief Hilo que lee el archivo inventario.txt, cuenta la cantidad de
+ *        registros que contiene, genera el arreglo que contendra la
+ *        informacion y finalmente lee la informacion al arreglo.
+ * @param *p Parametro recibido por referencia que guardara el numero de
+ *        registros que contiene el archivo.
+ * @return void* Regresa el apuntador del arreglo que contiene la información
+ *               obtenida los archivos para su uso fuera del hilo.
 */
 void *cuentaInventario(void* p){
   char c;
@@ -44,7 +54,7 @@ void *cuentaInventario(void* p){
     for(i=0; i<entradas; i++){
       lectura= fscanf(arch,"%s %s %d %f",inv[i].nombreProducto,
         inv[i].tienda,&inv[i].cantidadExistente,&inv[i].precio);
-        
+
       //Se usa el retorno de fscanf para verificar la informacion
       if(lectura != 4){
         fclose(arch);
@@ -67,6 +77,15 @@ void *cuentaInventario(void* p){
 
   Este hilo tiene la misma funcion que el anterior, pero en un archivo
   diferente (registro.txt).
+*/
+/**
+ * @brief Hilo que lee el archivo registro.txt, cuenta la cantidad de
+ *        registros que contiene, genera el arreglo que contendra la
+ *        informacion y finalmente lee la informacion al arreglo.
+ * @param *r Parametro recibido por referencia que guardara el numero de
+ *        registros que contiene el archivo.
+ * @return void* Regresa el apuntador del arreglo que contiene la información
+ *               obtenida los archivos para su uso fuera del hilo.
 */
 void *cuentaRegistro(void* r){
   char c;
@@ -117,10 +136,17 @@ void *cuentaRegistro(void* r){
   Retorno: (void*) Se regresa el estado de la ejecucion del programa e indicar
                    si la escritura fue exitosa
 
-  Estos hilos escriben la informacion modificada a los archivos y generan
-  un archivo de respaldo. Si hubiera un problema al escribir los datos, se
+  Este hilo escribe la informacion modificada a los archivos y genera un
+  archivo de respaldo. Si hubiera un problema al escribir los datos, se
   retorna un valor que permite al programa tomar medidas para recuperar la
   informacion.
+*/
+/**
+ * @brief Este hilo escribe la informacion modificada a los archivos y genera un
+ *        archivo de respaldo.
+ * @param *args Apuntador que recibe el apuntador del arreglo que contiene la
+ *        la información que se escribira al archivo.
+ * @return void* Se regresa el estado final del proceso de escritura.
 */
 void* wInventario(void *args){
   int32_t i;
@@ -158,6 +184,13 @@ void* wInventario(void *args){
 
   Este hilo tiene una funcion igual al anterior, pero lo hace a un archivo
   diferente (registro.txt)
+*/
+/**
+ * @brief Este hilo escribe la informacion modificada a los archivos y genera un
+ *        archivo de respaldo.
+ * @param *args Apuntador que recibe el apuntador del arreglo que contiene la
+ *        la información que se escribira al archivo.
+ * @return void* Se regresa el estado final del proceso de escritura.
 */
 void* wServicio(void *args){
   int32_t i;

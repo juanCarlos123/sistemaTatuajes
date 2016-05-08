@@ -1,8 +1,8 @@
-/*
-  Archivo que contiene el menu con el que interactuara el usuario.
-  Mientras se genera el menu y se muestra al usuario, se generan
-  2 hilos que leen el contenido de los archivos de datos y preparan
-  la informacion para ser mostrada al usuario.
+/**
+ * @file menu.c
+ *Archivo que contiene la funcion que genera el menu con el que interactuara
+ *el usuario y lee los datos necesarios para comenzar el funcionamiento del
+ *programa.
 */
 
 /*
@@ -10,6 +10,12 @@
   returno: (void)
 
   Funcion que imprime el menu inicial al usuario
+*/
+/**
+ *@brief Funcion que imprime el menu que se muestra al usuario durante el
+ *       inicio del programa
+ *@param void
+ *@return void
 */
 void menu(void){
   printf("\n\n1. Revisar inventario\n");
@@ -34,6 +40,12 @@ void menu(void){
   esta linea quita todos los valores ingresados por el usuario del
   buffer de teclado, se detiene hasta encontrar un salto de linea.
   Es una forma de sustituir a fflush(stdin).
+*/
+/**
+ * @brief Función que lee y valida los datos ingresados por el usuario desde
+ *        el teclado.
+ * @param void
+ * @return int32_t Regresa el dato ingresado por el usuario.
 */
 int32_t pedirDato(void){
   char basuraTeclado;
@@ -70,6 +82,15 @@ int32_t pedirDato(void){
   La informacion reciba no se escribira hasta que el usuario elija la opcion
   7, en ese momento se creara un proceso hijo que escribira la informacion
   a los archivos correspondientes de forma transparente al usuario.
+*/
+/**
+ * @brief Función que muestra el menu que se muestra al usuario, igualmente
+          por medio de 2 hilos se leen los datos desde los archivos y se
+          guardan en arreglos que estaran disponibles durante el resto de la
+          ejecución.
+ * @param void
+ * @return int32_t Regresa el estado final de la ejecución y la regresa
+ *         al main().
 */
 int32_t inicio(void){
   char basuraTeclado;
