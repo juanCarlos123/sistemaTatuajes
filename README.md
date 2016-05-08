@@ -38,4 +38,4 @@ los generara automaticamente. Solo que estos estaran vacios.
 Como punto final, se incluye un .tar.gz, que contiene una pagina web con el listado de las 
 funciones, estructuras, variables y constantes en el programa. Tambien facilita la revision
 del codigo ya que muestra un listado con los codigos. La pagina fue generada con la herramienta
-doxygen.
+doxygen. Se debe abrir desde el archivo index.html.
