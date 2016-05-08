@@ -18,7 +18,8 @@ void menu(void){
   printf("4. Adquisicion de nuevo material\n");
   printf("5. Borrar material del inventario\n");
   printf("6. Registrar servicio\n");
-  printf("7. Salir del programa\n\n> ");
+  printf("7. Volver a leer la informacion de los archivos\n");
+  printf("8. Salir del programa\n\n> ");
 
   return;
 }
@@ -88,6 +89,17 @@ int32_t inicio(void){
   pthread_join(contarP,&castP);
   pthread_join(contarS,&castS);
 
+  //Se verifica la integridad de los archivos mientras se lee
+  if(castP == NULL){
+    printf("\n\nEl archivo inventario.txt esta corrupto\n\n");
+    return -1;
+  }
+
+  if(castS == NULL){
+    printf("\n\nEl archivo registros.txt esta corrupto\n\n");
+    return -1;
+  }
+
   //El aputador al arreglo recibido por el hilo es casteado al tipo de
   //dato correspondiente
   product= (intptr_t)noProduct;
@@ -135,6 +147,16 @@ int32_t inicio(void){
       break;
 
       case 7:
+        /*Se usa recursividad para releer la informacion de los archivos si
+        fueron modificados manualmente*/
+        ret= inicio();
+        if(ret == -1)
+          return ret;
+        else
+          return ret;
+      break;
+
+      case 8:
         /*Se asigna el valor a uno solo los elementos para poder ser
         usado dentro del hilo que escribira la informacion*/
         invent[0].size= product;
@@ -154,7 +176,7 @@ int32_t inicio(void){
           ret= escribirDatos(invent,serv);
           if(ret == 0)
             exit(EXIT_SUCCESS);
-          //Se finaliza la ejecucion del hijo si fue exitoso el proceso  
+          //Se finaliza la ejecucion del hijo si fue exitoso el proceso
       break;
 
       default:

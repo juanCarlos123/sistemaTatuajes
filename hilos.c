@@ -18,8 +18,8 @@
 */
 void *cuentaInventario(void* p){
   char c;
-  intptr_t entradas= 0, *valor= (intptr_t*)p;
-  int32_t i= 0, isError= 0;
+  intptr_t entradas= 0,*valor= (intptr_t*)p;
+  int32_t i= 0,isError= 0,lectura;
   Inventario *inv;
   FILE *arch;
 
@@ -28,9 +28,9 @@ void *cuentaInventario(void* p){
   if(arch==NULL){ //Se considera si el archivo existe o no
     arch= fopen(INVENTARIO,"w");
     fclose(arch);
-    *valor= 0;
+    *valor= 0; //En caso de un archivo se genera un arreglo de un espacio
     inv= (Inventario*)calloc(1,sizeof(Inventario));
-  }else{
+  }else{ //Se cuenta el numero de registros
     while(!feof(arch)){
       c= getc(arch);
       if(c == '\n')
@@ -41,9 +41,16 @@ void *cuentaInventario(void* p){
     inv= (Inventario*)calloc(entradas,sizeof(Inventario));
 
     rewind(arch);
-    for(i=0; i<entradas; i++)
-      fscanf(arch,"%s %s %d %f",inv[i].nombreProducto,inv[i].tienda,
-        &inv[i].cantidadExistente,&inv[i].precio);
+    for(i=0; i<entradas; i++){
+      lectura= fscanf(arch,"%s %s %d %f",inv[i].nombreProducto,
+        inv[i].tienda,&inv[i].cantidadExistente,&inv[i].precio);
+        
+      //Se usa el retorno de fscanf para verificar la informacion
+      if(lectura != 4){
+        fclose(arch);
+        return (void*)(NULL);
+      }
+    }
 
     fclose(arch);
   }
@@ -63,32 +70,38 @@ void *cuentaInventario(void* p){
 */
 void *cuentaRegistro(void* r){
   char c;
-  intptr_t entradas= 0, *valor= (intptr_t*)r;
-  int32_t i= 0, isError= 0;
+  intptr_t entradas= 0,*valor= (intptr_t*)r;
+  int32_t i= 0,isError= 0,lectura;
   Servicio *serv;
   FILE *arch;
 
   arch= fopen(REGISTRO, "r");
-
+  //Se verifica la existencia del archivo
   if(arch==NULL){
     arch= fopen(REGISTRO,"w");
     fclose(arch);
-    *valor= 0;
+    *valor= 0; //En caso de un archivo se genera un arreglo de un espacio
     serv= (Servicio*)calloc(1,sizeof(Servicio));
-  }else{
+  }else{ //Se cuenta el numero de registros
     while(!feof(arch)){
       c= getc(arch);
       if(c == '\n')
         entradas++;
     }
-
+    //Se genera el arreglo que guardara la informacion
     *valor= entradas;
     serv= (Servicio*)calloc(entradas,sizeof(Servicio));
-
+    //Se regresa el puntero de flujo
     rewind(arch);
-    for(i=0; i<entradas; i++)
-      fscanf(arch,"%s %s %s %s %f ",serv[i].fecha,serv[i].vendedor,
+    for(i=0; i<entradas; i++){
+      lectura= fscanf(arch,"%s %s %s %s %f ",serv[i].fecha,serv[i].vendedor,
         serv[i].servicio,serv[i].tienda,&serv[i].total);
+      //Se usa el retorno de fscanf para verificar la informacion
+      if(lectura != 5){
+        fclose(arch);
+        return (void*)(NULL);
+      }
+    }//Se retorna un nulo en caso de error
 
     fclose(arch);
   }
@@ -115,11 +128,13 @@ void* wInventario(void *args){
   FILE *arch;
   Inventario *inv= (Inventario*)args;
 
+  /*Se llama al S.O para que haga una copia del archivo inventario
+  antes de escribir en el*/
   isError= system("cp inventario.txt inventario.txt.bak");
   arch= fopen(INVENTARIO,"w");
   if(arch == NULL)
     isError= -1;
-  else{
+  else{ //Se verifica que el archivo no este "borrado"
     for(i=0; i<inv[0].size; i++){
       if(strcmp(inv[i].nombreProducto,"borrado") == 0)
         continue;
