@@ -25,3 +25,7 @@ Entre las limitaciones del programa se tiene que, aunque se valida la informacio
 solo se hace una validacion de tipo, mas no semantica, asi que en campos como tienda o 
 vendedor, se podria ingresar informacion valida en cuanto a su tipo, pero completamente 
 absurda.
+
+Se incluyen 2 archivos .txt para probar el proyecto, igualmente se incluyen 2 archivos
+.txt.bak. No son necesarios para la ejecucion del programa, ya que de no existir el programa
+los generara automaticamente. Solo que estos estaran vacios.
