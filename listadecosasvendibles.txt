@@ -1,0 +1,108 @@
+Retapas
+Vaselina
+Tintas
+
+agujas(
+línea 3
+5 línea
+5 sombra
+7 sombra
+7 línea
+8 sombra
+8 línea
+7 magnum
+5 magnum
+11 magnum
+9 magnum
+13 magnum
+y de las mismas medidas se compran puntillas desechables)
+
+tubos
+toallas
+campos(producto especializado)
+cryt (desinfectante)
+jabon quirurjico
+laisol
+esterixit
+alcohol en gel
+gel antibacterial
+guantes
+punzocaps
+clitcore
+rollos de plástico
+gazas.
+Liquidos de limpieza general (pinol, cloro, etc)
+henna.
+
+Mercancia vendida:
+aretes
+tatuajes
+henna
+
+Aretes:
+ombligo
+lengua
+nariz
+ceja
+pezón
+expansores
+simuladores de expansores
+
+Servicios:
+Sesion (3 horas)
+hora
+costo minimo 400
+
+#define RETAPA 100
+#define VASELINA 10
+#define TINTACOLOR 300
+#define TINTANEGRO 200
+#define AGUJALINEA3 150
+#define AGUJALINEA5 170
+#define AGUJALINEA7 200
+#define AGUJALINEA8 220
+#define AGUJASOMBRA5 180
+#define AGUJASOMBRA7 195
+#define AGUJASOMBRA8 230
+#define AGUJAMAGNUM3 200
+#define AGUJAMAGNUM5 215
+#define AGUJAMAGNUM7 250
+#define AGUJAMAGNUM9 280
+#define AGUJAMAGNUM11 310
+#define AGUJAMAGNUM13 330
+#define PUNTILLALINEA3 150
+#define PUNTILLALINEA5 170
+#define PUNTILLALINEA7 200
+#define PUNTILLALINEA8 220
+#define PUNTILLASOMBRA5 180
+#define PUNTILLASOMBRA7 195
+#define PUNTILLASOMBRA8 230
+#define PUNTILLAMAGNUM3 200
+#define PUNTILLAMAGNUM5 215
+#define PUNTILLAMAGNUM7 250
+#define PUNTILLAMAGNUM9 280
+#define PUNTILLAMAGNUM11 310
+#define PUNTILLAMAGNUM13 330
+#define TUBOS 80
+#define TOALLAS 120
+#define CAMPOS 50
+#define CRYT 60
+#define JABON 100
+#define LAISOL 90
+#define ESTERIXIT 70
+#define ALCOHOL 80
+#define GELANTI 75
+#define GUANTES 140
+#define PUNZOCAPS 230
+#define CLITCORE 175
+#define PLASTICO 250
+#define GAZAS 100
+#define CLORO 80
+#define ARETESB 80
+#define ARETESA 150
+#define EXPANSIONES 120
+#define SIMULEXPA 90
+#define SESION 1500
+#define HORA 500
+#define MINIMO 400
+#define HENNA 350
