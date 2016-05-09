@@ -65,7 +65,7 @@ void *cuentaInventario(void* p){
     fclose(arch);
   }
 
-  return (void*)inv;
+  pthread_exit((void*)inv);
 }
 
 /*
@@ -125,7 +125,7 @@ void *cuentaRegistro(void* r){
     fclose(arch);
   }
 
-  return (void*)serv;
+  pthread_exit((void*)serv);
 }
 
 /*
@@ -171,7 +171,7 @@ void* wInventario(void *args){
 
     fclose(arch);
   }
-  return (void*)isError;
+  pthread_exit((void*)isError);
 }
 
 /*
@@ -209,5 +209,5 @@ void* wServicio(void *args){
 
     fclose(arch);
   }
-  return (void*)isError;
+  pthread_exit((void*)isError);
 }
