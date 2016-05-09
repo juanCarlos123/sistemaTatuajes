@@ -4,3 +4,5 @@
 07/05/16 Bart Piercing Tienda-2 200.00
 05/07/16 Nicky Piercing Tienda-1 2500.00
 05/08/16 Pedro Tatuaje Tienda-2 1500.00
+05/08/16 Julymoy Piercing Tienda-2 210.00
+05/08/16 Julymoy Venta Tienda-1 1000.00
